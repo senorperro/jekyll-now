@@ -7,7 +7,7 @@ This is a test blog post for now, so i'll put in some demo images so as to make 
 
 For now I'll briefly talk about what i've read on [The Tangled Web](https://www.nostarch.com/tangledweb), a wonderful book written by [Michal Zalewski](https://en.wikipedia.org/wiki/Micha%C5%82_Zalewski)
 
-![_config.yml]({{ site.baseurl }}/images/51KYRvVYiRL._SX376_BO1,204,203,200_.jpg)
+![_config.yml]({{ site.baseurl }}/images/thetangledweb.jpg)
 
 The book briefly introduces the reader to the 3 basic most prominent philosophies in cyber security:
 * __Formal Solutions__
