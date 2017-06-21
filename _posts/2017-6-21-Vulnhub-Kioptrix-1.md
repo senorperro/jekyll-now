@@ -7,7 +7,7 @@ While going around online looking for something to keep my pentesting skils shar
 
 ![_config.yml]({{ site.baseurl }}/images/newKioptrix_1.jpg)
 
-__Trget Audience Level:__ [<span style="color:green">■ ■ </span>] Easy*
+__Trget Audience Level:__ [<span style="color:green">■ ■</span>] Easy*
 <font size="-1">* Note: I say "easy" because, through personal experience, it seem like compilig the specific exploit used as part of this exercise might become  less straightforward as time passes and the libraries it uses are further updated.</font>
 
 The Kioptrix challenges are targeted towards folks trying to get an idea of what gaining administrative privileges to a single machine is like in a safe environment while also not losing their sanity in the process. You can find the VMs download link and other information on vulnhub's [Kioptrix Level 1 page](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/).
