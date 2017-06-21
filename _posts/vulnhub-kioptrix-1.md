@@ -15,4 +15,4 @@ The Kioptrix challenges are targeted towards folks trying to get an idea of what
 
 ***SPOILERS AHEAD. IF YOU DON'T WANT THE ANSWER TO THIS CHALLENEGED SPOILED FOR YOU, DO NOT CONTINUE.
 
-Once you've downloaded, configured and deployed the Kioptrix image on your prefered virtualization software, you can find its assigned IP address using Nmap's ping sweep flag: __nmap -sP 192.168.1.0/24 __ <span style="color:red">(remember to use the IP address that belongs to your subnetwork)</span>
+Once you've downloaded, configured and deployed the Kioptrix image on your prefered virtualization software, you can find its assigned IP address using Nmap's ping sweep flag: __nmap -sP 192.168.1.0/24__ <span style="color:red">(remember to use the IP address that belongs to your subnetwork)</span>
