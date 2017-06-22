@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kioptrix 1 Walkthrough: Compilation Errors from Hell
+title: Kioptrix 1 Walkthrough: Compilation Errors from Hell 😡
 ---
 
 While going around online looking for something to keep my pentesting skils sharp, I came across the [Kioptrix challenges](http://www.kioptrix.com/blog/), which are a series of VMs with security misconfigurations so people can attempt to gain root access by whatever viable means they find (exploiting the virtualization software itself doesn't count!).
