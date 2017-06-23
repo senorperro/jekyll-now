@@ -22,8 +22,8 @@ Now that you know the Kioptrix host's IP address, you can launch a quick nmap sc
 
 <span styel="font-family: 'Consolas'"> nmap -sV -p- -T4 192.168.201.132 </span>
 
+<pre>
 Nmap scan report for 192.168.201.132
-
 Host is up (0.000098s latency).
 Not shown: 65529 closed ports
 PORT     STATE SERVICE     VERSION
@@ -34,8 +34,6 @@ PORT     STATE SERVICE     VERSION
 443/tcp  open  ssl/http    Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
 1024/tcp open  status      1 (RPC #100024)
 MAC Address: 00:0C:29:75:C4:41 (VMware)
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 13.57 seconds
+</pre>
 
 We can see that
