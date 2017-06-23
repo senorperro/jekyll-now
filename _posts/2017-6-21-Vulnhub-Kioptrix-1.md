@@ -39,7 +39,7 @@ MAC Address: 00:0C:29:75:C4:41 (VMware)
 
 When searching online about the Apache version that is running on this host, we find that it is rather outdated, and an exploit called "[OpenFuckV2](https://www.exploit-db.com/exploits/764/)" comes up among the top search results, amd Since it's written in C, you should be able to compile it using gcc if you're using any of the most common Linux distributions.
 
-The exploit itself comes packaged with a link to a blog post that contains instructions on how to fix the exploit in order for it to actually function, as well as gcc compilation instructions.
+The exploit itself comes with a link to a blog post that contains instructions on how to modify the exploit in order for it to actually function, as well as gcc compilation syntax.
 
 ```c
 /*
@@ -49,5 +49,9 @@ The exploit itself comes packaged with a link to a blog post that contains instr
  * Compile with: gcc -o OpenFuck OpenFuck.c -lcrypto
  * objdump -R /usr/sbin/httpd|grep free to get more targets
  * #hackarena irc.brasnet.org
- */
+ */ 
 ```
+
+Although I modified the exploit apropriately, I still got compilation errors when using the gcc flags specified by the comments at the beginning of the code. GCC tells us that some variables used by the exploit, which are supposed to be defined in the libssl library, are missing or incomplete.
+
+![_config.yml]({{ site.baseurl }}/images/openfuck-after-update-errors.png)
