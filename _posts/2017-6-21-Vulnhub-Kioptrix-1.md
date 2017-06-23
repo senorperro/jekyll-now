@@ -20,9 +20,9 @@ __<pre>nmap -sP 192.168.1.0/24</pre>__
 
 Now that you know the Kioptrix host's IP address, you can launch a quick nmap scan to see what ports are open on it. Since we're performing these scans within the safety of our home LAN, we can be hasty with our scans.
 
-<span styel="font-family: 'Consolas'"> nmap -sV -p- -T4 192.168.201.132 </span>
-
 <pre>
+nmap -sV -p- -T4 192.168.201.132
+
 Nmap scan report for 192.168.201.132
 Host is up (0.000098s latency).
 Not shown: 65529 closed ports
