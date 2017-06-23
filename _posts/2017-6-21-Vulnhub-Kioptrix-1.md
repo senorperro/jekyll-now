@@ -16,7 +16,7 @@ __<font style="color:red" size="+2">SPOILERS AHEAD. IF YOU DON'T WANT THE ANSWER
 
 Once you've downloaded, configured and deployed the Kioptrix image on your prefered virtualization software, you can find its assigned IP address using Nmap's ping sweep flag: 
 
-__<font face="consolas">nmap -sP 192.168.1.0/24</font>__
+__<pre>nmap -sP 192.168.1.0/24</pre>__
 
 Now that you know the Kioptrix host's IP address, you can launch a quick nmap scan to see what ports are open on it. Since we're performing these scans within the safety of our home LAN, we can be hasty with our scans.
 
