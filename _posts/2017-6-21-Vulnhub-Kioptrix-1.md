@@ -55,3 +55,8 @@ The exploit itself comes with a link to a blog post that contains instructions o
 Although I modified the exploit apropriately, I still got compilation errors when using the gcc flags specified by the comments at the beginning of the code. GCC tells us that some variables used by the exploit, which are supposed to be defined in the libssl library, are missing or incomplete.
 
 ![_config.yml]({{ site.baseurl }}/images/openfuck-after-update-errors.png)
+
+After a while of searching for an answer online, I finally found that the specific libssl version that the OpenFuck exploit makes use of must be installed separately from the one indicated in the tutorial.
+
+__<span style="font-style: 'consolas'">apt-get install libssl1.0-dev</span>__
+
