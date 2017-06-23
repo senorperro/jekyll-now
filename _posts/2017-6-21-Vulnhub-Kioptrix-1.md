@@ -18,19 +18,31 @@ Once you've downloaded, configured and deployed the Kioptrix image on your prefe
 
 Now that you know the Kioptrix host's IP address, you can launch a quick nmap scan to see what ports are open on it. Since we're performing these scans within the safety of our home LAN, we can be hasty with our scans.
 
-<span font-family: 'Consolas'> nmap -sV -p- -T4 192.168.201.132 </span>
+<span styel="font-family: 'Consolas'"> nmap -sV -p- -T4 192.168.201.132 </span>
 
 Nmap scan report for 192.168.201.132
+
+
 Host is up (0.000098s latency).
+
 Not shown: 65529 closed ports
+
 PORT     STATE SERVICE     VERSION
+
 22/tcp   open  ssh         OpenSSH 2.9p2 (protocol 1.99)
+
 80/tcp   open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
+
 111/tcp  open  rpcbind     2 (RPC #100000)
+
 139/tcp  open  netbios-ssn Samba smbd (workgroup: MYGROUP)
+
 443/tcp  open  ssl/http    Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
+
 1024/tcp open  status      1 (RPC #100024)
+
 MAC Address: 00:0C:29:75:C4:41 (VMware)
+
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 13.57 seconds
