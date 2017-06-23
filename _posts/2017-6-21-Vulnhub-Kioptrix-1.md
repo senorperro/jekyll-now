@@ -34,3 +34,5 @@ MAC Address: 00:0C:29:75:C4:41 (VMware)
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 13.57 seconds
+
+We can see that
