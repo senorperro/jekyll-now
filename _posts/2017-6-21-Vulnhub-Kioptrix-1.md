@@ -29,7 +29,7 @@ Host is up (0.000098s latency).
 Not shown: 65529 closed ports
 PORT     STATE SERVICE     VERSION
 22/tcp   open  ssh         OpenSSH 2.9p2 (protocol 1.99)
-80/tcp   open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
+__80/tcp   open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)__
 111/tcp  open  rpcbind     2 (RPC #100000)
 139/tcp  open  netbios-ssn Samba smbd (workgroup: MYGROUP)
 443/tcp  open  ssl/http    Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
@@ -37,4 +37,17 @@ PORT     STATE SERVICE     VERSION
 MAC Address: 00:0C:29:75:C4:41 (VMware)
 </pre>
 
-We can see that
+When searching online about the Apache version that is running on this host, we find that it is rather outdated, and an exploit called "[OpenFuckV2](https://www.exploit-db.com/exploits/764/)" comes up among the top search results, amd Since it's written in C, you should be able to compile it using gcc if you're using any of the most common Linux distributions.
+
+The exploit itself comes packaged with a link to a blog post that contains instructions on how to fix the exploit in order for it to actually function, as well as gcc compilation instructions.
+
+```c
+/*
+ * E-DB Note: Updating OpenFuck Exploit ~ http://paulsec.github.io/blog/2014/04/14/updating-openfuck-exploit/
+ *
+ * OF version r00t VERY PRIV8 spabam
+ * Compile with: gcc -o OpenFuck OpenFuck.c -lcrypto
+ * objdump -R /usr/sbin/httpd|grep free to get more targets
+ * #hackarena irc.brasnet.org
+ */
+```
