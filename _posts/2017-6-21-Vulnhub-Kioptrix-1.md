@@ -8,9 +8,9 @@ While going around looking for something to keep my pentesting skils sharp, I ca
 ![_config.yml]({{ site.baseurl }}/images/newKioptrix_1.jpg)
 
 __Target Audience Level:__ [<span style="color:green">■ ■</span>] Easy*
-<font size="-1">* Note: I say "easy" because, through personal experience, it seems like compilig the exploit used as part of this exercise might become less straightforward as time passes and the libraries it uses are further updated.</font>
+* Note: I say "easy" because, through personal experience, it seems like compiling the exploit used as part of this exercise might become less straightforward as time passes and the libraries it uses are further updated.
 
-The Kioptrix challenges are targeted towards folks trying to get an idea of what gaining administrative privileges to a single machine is like in a safe environment while also not losing their sanity in the process. You can find the VMs download link and other information on vulnhub's [Kioptrix Level 1 page](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/).
+The Kioptrix challenges are meant for folks trying to get an idea of what gaining administrative privileges to a single machine is like in a safe environment while also not losing their sanity in the process. You can find the VMs download link and other information on vulnhub's [Kioptrix Level 1 page](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/).
 
 __<center><font style="color:red" size="+2">SPOILERS AHEAD. IF YOU DON'T WANT THE ANSWER TO THIS CHALLENEGE SPOILED FOR YOU, DO NOT CONTINUE.</font></center>__
 
@@ -29,7 +29,7 @@ Host is up (0.000098s latency).
 Not shown: 65529 closed ports
 PORT     STATE SERVICE     VERSION
 22/tcp   open  ssh         OpenSSH 2.9p2 (protocol 1.99)
-__80/tcp   open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)__
+80/tcp   open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
 111/tcp  open  rpcbind     2 (RPC #100000)
 139/tcp  open  netbios-ssn Samba smbd (workgroup: MYGROUP)
 443/tcp  open  ssl/http    Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
@@ -37,7 +37,7 @@ __80/tcp   open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ss
 MAC Address: 00:0C:29:75:C4:41 (VMware)
 </pre>
 
-When searching online about the Apache version that is running on this host, we find that it is rather outdated, and an exploit called "[OpenFuckV2](https://www.exploit-db.com/exploits/764/)" comes up among the top search results, amd Since it's written in C, you should be able to compile it using gcc if you're using any of the most common Linux distributions.
+When searching online about the Apache version that is running on this host, we find that it is rather outdated, and an exploit called "[OpenFuckV2](https://www.exploit-db.com/exploits/764/)" comes up among the top search results, which exploits a buffer overflow in the mod_ssl module of apache, giving remote code execution (RCE) capabilities to anyone .Since it's written in C, you should be able to compile it using gcc if you're using any of the most common Linux distributions.
 
 The exploit itself comes with a link to a blog post that contains instructions on how to modify the exploit in order for it to actually function, as well as gcc compilation syntax.
 
@@ -60,3 +60,4 @@ After a while of searching for an answer online, I finally found that the specif
 
 __<span style="font-style: 'consolas'">apt-get install libssl1.0-dev</span>__
 
+With this missing library version installed, the OpenFuckV2 exploit should run without issues after compiling it with the indicated gcc flags: gcc -o OpenFuckV2 764.c -lcrypto
