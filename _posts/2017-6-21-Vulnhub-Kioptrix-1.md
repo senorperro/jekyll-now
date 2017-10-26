@@ -9,7 +9,8 @@ While going around looking for something to keep my pentesting skils sharp, I ca
 ![_config.yml]({{ site.baseurl }}/images/newKioptrix_1.jpg)
 
 __Target Audience Level:__ [<span style="color:green">■ ■</span>] Easy*
-<sub>* Note: I say "easy" because, through personal experience, it seems like compiling the exploit used as part of this exercise might become less straightforward as time passes and the libraries it uses are further updated.</sub>
+
+<sub>Note: I say "easy" because, through personal experience, it seems like compiling the exploit used as part of this exercise might become less straightforward as time passes and the libraries it uses are further updated.</sub>
 
 What this tutorial assumes.
 
