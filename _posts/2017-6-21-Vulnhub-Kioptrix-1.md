@@ -10,19 +10,16 @@ While going around looking for something to keep my pentesting skils sharp, I ca
 
 __Target Audience Level:__ [<span style="color:green">■ ■</span>] Easy*
 
-<sub>Note: I say "easy" because, through personal experience, it seems like compiling the exploit used as part of this exercise might become less straightforward as time passes and the libraries it uses are further updated.</sub>
-
-What this tutorial assumes.
-
-* Basic TCP/IP knowledge.
-* Virtualization software usage knowledge.
-* Basic Programming concepts.
+__What this tutorial assumes.__
+- Basic TCP/IP knowledge.
+- Virtualization software usage knowledge.
+- Basic Programming concepts.
 
 The Kioptrix challenges are meant for folks trying to get an idea of what gaining administrative privileges to a single machine is like in a safe environment. You can find the VM's download link and other information on vulnhub's [Kioptrix Level 1 page](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/).
 
 __<center><font style="color:red" size="+2">SPOILERS AHEAD. IF YOU DON'T WANT THE ANSWER TO THIS CHALLENEGE SPOILED FOR YOU, DO NOT CONTINUE.</font></center>__
 
-Once you've downloaded, configured and deployed the Kioptrix image on your prefered virtualization software, you can find its assigned IP address using Nmap's ping sweep flag: 
+Once you've downloaded, configured and deployed the Kioptrix image on your prefered virtualization software, you can find its assigned IP address using Nmap's ping sweep flag or the netdiscover tool
 
 __nmap -sP 192.168.1.0/24__
 
@@ -69,7 +66,7 @@ Although I modified the exploit apropriately, I still got compilation errors whe
 
 After a while of searching for an answer online, I finally found that the specific libssl version that the OpenFuck exploit makes use of must be installed separately from the one indicated in the tutorial.
 
-__<span style="font-style: 'consolas'">apt-get install libssl1.0-dev</span>__
+__<span style="font-family:'consolas'">apt-get install libssl1.0-dev</span>__
 
 With this missing library version installed, the OpenFuckV2 exploit should run without issues after compiling it with the indicated gcc flags.
 
