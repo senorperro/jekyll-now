@@ -25,10 +25,8 @@ __nmap -sP 192.168.1.0/24__
 
 Now that you know the Kioptrix host's IP address, you can launch a quick nmap scan to see what ports are open on it. Since we're performing these scans within the safety of our home LAN, we can be hasty with our scans.
 
-
-__nmap -sV -p- -T4 192.168.201.132__
-
-<pre>
+```console
+nmap -sV -p- -T4 192.168.201.132
 Nmap scan report for 192.168.201.132
 Host is up (0.000098s latency).
 Not shown: 65529 closed ports
@@ -40,7 +38,7 @@ PORT     STATE SERVICE     VERSION
 443/tcp  open  ssl/http    Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
 1024/tcp open  status      1 (RPC #100024)
 MAC Address: 00:0C:29:75:C4:41 (VMware)
-</pre>
+```
 
 Judging from the scan, there is an Apache web server running on the host
 
