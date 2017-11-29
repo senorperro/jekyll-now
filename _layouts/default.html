@@ -36,12 +36,13 @@
     </div>
 
     <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
-    
-    <div class="container sidebar">
-      <div class="row">
-        {% include sidebar.html %}
+       <div class="row">
+        <div class="col-lg-4">
+          {% include sidebar.html %}
+        </div>
+        <div class="col-lg-8">
+          {{ content }}
+        </div>
       </div>
     </div>
     
