@@ -251,6 +251,8 @@ nav {
 }
 
 .post {
+  margin: auto;
+  width: 54rem; // 864px
   blockquote {
     margin: auto;
     border-left: 2px solid $gray;
@@ -260,11 +262,6 @@ nav {
     font-style: italic;
   }
 	
-.post {
-  margin: auto;
-  width: 54rem; // 864px
-}
-
   .comments {
     margin-top: 10px;
   }
