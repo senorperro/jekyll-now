@@ -258,8 +258,12 @@ nav {
     color: $gray;
     font-size: 22px;
     font-style: italic;
-    width: 54rem;
   }
+	
+.post {
+  margin: auto;
+  width: 54rem; // 864px
+}
 
   .comments {
     margin-top: 10px;
