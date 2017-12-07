@@ -1,23 +1,10 @@
 ---
 layout: post
-title: Kioptrix 1 - Compilation Errors from Hell
+title: Kioptrix 1 Walkthrough
 ---
-__Introduction__
 
-While going around looking for something to keep my pentesting skils sharp, I came across the __[Kioptrix challenges](http://www.kioptrix.com/blog/)__, which are a series of VMs with security misconfigurations so people can attempt to gain root access by whatever viable means they find (exploiting the virtualization software itself doesn't count!).
-
-![_config.yml]({{ site.baseurl }}/images/newKioptrix_1.jpg)
-
-__Target Audience Level:__ [<span style="color:green">■ ■</span>] Easy*
-
-__What this tutorial assumes.__
-- Basic TCP/IP knowledge.
-- Virtualization software usage knowledge.
-- Basic Programming concepts.
-
-The Kioptrix challenges are meant for folks trying to get an idea of what gaining administrative privileges to a single machine is like in a safe environment. You can find the VM's download link and other information on vulnhub's [Kioptrix Level 1 page](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/).
-
-__<center><font style="color:red" size="+2">SPOILERS AHEAD. IF YOU DON'T WANT THE ANSWER TO THIS CHALLENEGE SPOILED FOR YOU, DO NOT CONTINUE.</font></center>__
+Kioptrix VMs are meant as entry level pentest challenges where the goal is to get root privileges.
+Download [Kioptrix 1 here](http://www.kioptrix.com/blog/) or from [Vulnhub](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/#download).
 
 Once you've downloaded, configured and deployed the Kioptrix image on your prefered virtualization software, you can find its assigned IP address using Nmap's ping sweep flag or the netdiscover tool
 
