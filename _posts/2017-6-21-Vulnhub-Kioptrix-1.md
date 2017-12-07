@@ -4,7 +4,7 @@ title: Kioptrix 1 Walkthrough
 ---
 
 Kioptrix VMs are meant as entry level pentest challenges where the goal is to get root privileges.
-Download [Kioptrix 1 here](http://www.kioptrix.com/blog/) or from [Vulnhub](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/#download).
+Download [Kioptrix 1 here](http://www.kioptrix.com/blog/test-page/) or from [Vulnhub](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/#download).
 
 Once you've downloaded, configured and deployed the Kioptrix image on your prefered virtualization software, you can find its assigned IP address using Nmap's ping sweep flag or the netdiscover tool
 
