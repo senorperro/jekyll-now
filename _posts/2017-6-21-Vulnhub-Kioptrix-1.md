@@ -20,7 +20,7 @@ Using <code>netdiscover</code> the IP address of the target is found.
  -------------------------------------------------------------------------
  192.168.201.1   00:50:56:c0:00:08     14     840  VMware, Inc.
  192.168.201.2   00:50:56:fa:93:9d      3     180  VMware, Inc.
- 192.168.201.132 00:0c:29:75:c4:41      1      60  VMware, Inc.
+ <span class="out-line">192.168.201.132 00:0c:29:75:c4:41      1      60  VMware, Inc.</span>
  192.168.201.254 00:50:56:e2:0c:13      1      60  VMware, Inc.
 </pre>
 
