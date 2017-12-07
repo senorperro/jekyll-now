@@ -16,7 +16,7 @@ Using <code>netdiscover</code> the IP address of the target is found.
  Currently scanning: Finished!   |   Screen View: Unique Hosts        
  19 Captured ARP Req/Rep packets, from 4 hosts.   Total size: 1140
  _________________________________________________________________________
-   IP            At MAC Address     Count     Len  MAC Vendor / Hostname      
+   IP            At MAC Address     Count     Len  MAC Vendor / Hostname  
  -------------------------------------------------------------------------
  192.168.201.1   00:50:56:c0:00:08     14     840  VMware, Inc.
  192.168.201.2   00:50:56:fa:93:9d      3     180  VMware, Inc.
