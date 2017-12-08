@@ -6,7 +6,7 @@ title: Kioptrix 1 Walkthrough
 Kioptrix VMs are meant as entry level pentest challenges where the goal is to get root privileges.
 Download [Kioptrix 1 here](http://www.kioptrix.com/blog/test-page/) or from [Vulnhub](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/#download).
 
-<h3>Find the Target</h3>
+<h3>Finding the Target</h3>
 
 Using <code>netdiscover</code> the IP address of the target is found.
 
@@ -24,6 +24,23 @@ Using <code>netdiscover</code> the IP address of the target is found.
  192.168.201.254 00:50:56:e2:0c:13      1      60  VMware, Inc.
 </pre>
 
-<h3>Enumerate</h3>
+<h3>Enumeration</h3>
 
-Placeholder text.
+An <code>nmap</code> scan shows 6 open ports on the host:
+
+<pre class="console-output">
+<span class="prompt">root@kali</span>:<span class="dir">~</span># nmap -sV -p- -T4 192.168.201.132
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2017-12-07 17:02 EST
+Nmap scan report for 192.168.201.132
+Host is up (0.000076s latency).
+Not shown: 65529 closed ports
+PORT      STATE SERVICE     VERSION
+22/tcp    open  ssh         OpenSSH 2.9p2 (protocol 1.99)
+__80/tcp    open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)__
+111/tcp   open  rpcbind     2 (RPC #100000)
+139/tcp   open  netbios-ssn Samba smbd (workgroup: MYGROUP)
+443/tcp   open  ssl/https   Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
+32768/tcp open  status      1 (RPC #100024)
+MAC Address: 00:0C:29:75:C4:41 (VMware)
+</pre>
