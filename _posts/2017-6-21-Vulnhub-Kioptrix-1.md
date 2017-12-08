@@ -37,7 +37,7 @@ Host is up (0.000076s latency).
 Not shown: 65529 closed ports
 PORT      STATE SERVICE     VERSION
 22/tcp    open  ssh         OpenSSH 2.9p2 (protocol 1.99)
-__80/tcp    open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)__
+<b>80/tcp    open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)</b>
 111/tcp   open  rpcbind     2 (RPC #100000)
 139/tcp   open  netbios-ssn Samba smbd (workgroup: MYGROUP)
 443/tcp   open  ssl/https   Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
