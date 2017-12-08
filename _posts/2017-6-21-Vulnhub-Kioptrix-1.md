@@ -44,3 +44,7 @@ PORT      STATE SERVICE     VERSION
 32768/tcp open  status      1 (RPC #100024)
 MAC Address: 00:0C:29:75:C4:41 (VMware)
 </pre>
+
+<h3>80/tcp http</h3>
+
+<h3>139/tcp netbios-ssn</h3>
