@@ -71,7 +71,7 @@ A <code>nikto</code> scan yields some useful information on the host's webserver
 + End Time:           2017-12-12 15:02:16 (GMT-5) (25 seconds)
 ---------------------------------------------------------------------------
 + 1 host(s) tested
-<span>
+</pre>
 
 Searching online for CVE-2002-0082 produces a corresponding exploit: [Apache mod_ssl < 2.8.7 OpenSSL - 'OpenFuckV2.c' Remote Buffer Overflow](https://www.exploit-db.com/exploits/764/)
 
