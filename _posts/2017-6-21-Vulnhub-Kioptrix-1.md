@@ -92,12 +92,10 @@ MSF: [Samba trans2open Overflow (Linux x86)](https://www.rapid7.com/db/modules/e
 
 <h3>Exploitation:80/tcp http</h3>
 
-A copy of the OpenFuckV2.c is copied into the current dir, which contains [instructions on how to update it](http://paulsec.github.io/blog/2014/04/14/updating-openfuck-exploit/):
+A copy of the OpenFuckV2.c is copied into the current dir, which contains [instructions on how to update it](http://paulsec.github.io/blog/2014/04/14/updating-openfuck-exploit/). Once updated, trying to compile the exploit in Kali Linux produces some errors using <code>gcc</code>.
 
-Add the following headers:
+<pre class="console-output">
+GCC ERRORS GO HERE
+</pre>
 
-'''c
-#include <openssl/rc4.h>
-#include <openssl/md5.h> 
-'''c
-
+This can be solved by running <code>apt-get install libssl1.0-dev</code>.
