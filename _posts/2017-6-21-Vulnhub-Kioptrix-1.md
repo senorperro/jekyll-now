@@ -77,12 +77,12 @@ Searching online for CVE-2002-0082 produces a corresponding PoC exploit: [Apache
 
 <h3>Enumeration:139/tcp netbios-ssn</h3>
 
-Samba version running on host is identified using MSF's smb_version module:
+Samba version running on host is identified using MSF's <code>smb_version</code> module:
 
 <pre class="console-output">
-msf auxiliary(smb_version) > run
+msf auxiliary(<span class="prompt">smb_version</span>) > run
 
-[*] 192.168.201.132:139   - Host could not be identified: Unix (Samba 2.2.1a)
-[*] Scanned 1 of 1 hosts (100% complete)
-[*] Auxiliary module execution completed
+[<span class="dir">*</span>] 192.168.201.132:139   - Host could not be identified: Unix (<span class="out-highlight">Samba 2.2.1a</span>)
+[<span class="dir">*</span>] Scanned 1 of 1 hosts (100% complete)
+[<span class="dir">*</span>] Auxiliary module execution completed
 </pre>
