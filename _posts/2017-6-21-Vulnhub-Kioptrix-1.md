@@ -80,11 +80,11 @@ Searching online for CVE-2002-0082 produces a corresponding PoC exploit: [Apache
 The samba version running on the host is identified using MSF's <code>smb_version</code> module:
 
 <pre class="console-output">
-msf auxiliary(<span class="prompt">smb_version</span>) > run
+<u>msf</u> auxiliary(<span class="prompt"><b>smb_version</b></span>) > run
 
-[<span class="dir">*</span>] 192.168.201.132:139   - Host could not be identified: Unix (<span class="out-highlight">Samba 2.2.1a</span>)
-[<span class="dir">*</span>] Scanned 1 of 1 hosts (100% complete)
-[<span class="dir">*</span>] Auxiliary module execution completed
+<span class="dir"><b>[*]</b></span> 192.168.201.132:139   - Host could not be identified: Unix (<span class="out-highlight">Samba 2.2.1a</span>)
+<span class="dir"><b>[*]</b></span> Scanned 1 of 1 hosts (100% complete)
+<span class="dir"><b>[*]</b></span> Auxiliary module execution completed
 </pre>
 
 Searching online for this samba version also yields an exploit: [Samba < 2.2.8 (Linux/BSD) - Remote Code Execution](https://www.exploit-db.com/exploits/10/)<br>
