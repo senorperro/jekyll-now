@@ -6,7 +6,7 @@ title: Kioptrix 1 Walkthrough
 Kioptrix VMs are meant as entry level pentest challenges where the goal is to get root privileges.
 Download [Kioptrix 1 here](http://www.kioptrix.com/blog/test-page/) or from [Vulnhub](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/#download).
 
-<h3>1.Finding the Host</h3>
+<h3>Finding the Host</h3>
 
 Using <code>netdiscover</code> the IP address of the target is found.
 
@@ -77,7 +77,7 @@ Searching online for CVE-2002-0082 produces a corresponding PoC exploit: [Apache
 
 <h3>Enumeration:139/tcp netbios-ssn</h3>
 
-Samba version running on host is identified using MSF's <code>smb_version</code> module:
+The samba version running on the host is identified using MSF's <code>smb_version</code> module:
 
 <pre class="console-output">
 msf auxiliary(<span class="prompt">smb_version</span>) > run
@@ -86,3 +86,18 @@ msf auxiliary(<span class="prompt">smb_version</span>) > run
 [<span class="dir">*</span>] Scanned 1 of 1 hosts (100% complete)
 [<span class="dir">*</span>] Auxiliary module execution completed
 </pre>
+
+Searching online for this samba version also yields an exploit: [Samba < 2.2.8 (Linux/BSD) - Remote Code Execution](https://www.exploit-db.com/exploits/10/)<br>
+MSF: [Samba trans2open Overflow (Linux x86)](https://www.rapid7.com/db/modules/exploit/linux/samba/trans2open)
+
+<h3>Exploitation:80/tcp http</h3>
+
+A copy of the OpenFuckV2.c is copied into the current dir, which contains [instructions on how to update it](http://paulsec.github.io/blog/2014/04/14/updating-openfuck-exploit/):
+
+Add the following headers:
+
+'''c
+#include <openssl/rc4.h>
+#include <openssl/md5.h> 
+'''c
+
