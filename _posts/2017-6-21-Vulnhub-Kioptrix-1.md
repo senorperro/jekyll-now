@@ -80,7 +80,7 @@ Searching online for CVE-2002-0082 produces a corresponding PoC exploit: [Apache
 The samba version running on the host is identified using MSF's <code>smb_version</code> module:
 
 <pre class="console-output">
-<u>msf</u> auxiliary(<span class="prompt"><b>smb_version</b></span>) > run
+<u>msf</u> auxiliary(<span class="prompt">smb_version</span>) > run
 
 <span class="dir"><b>[*]</b></span> 192.168.201.132:139   - Host could not be identified: Unix (<span class="out-highlight">Samba 2.2.1a</span>)
 <span class="dir"><b>[*]</b></span> Scanned 1 of 1 hosts (100% complete)
@@ -105,37 +105,37 @@ Copied to: /root/764.c
 <span class="prompt">root@kali</span>:<span class="dir">~</span># ... (Steps Update OpenFuck Exploit) ...
 
 <span class="prompt">root@kali</span>:<span class="dir">~</span># gcc -o OpenFuck 764.c -lcrypto
-764.c:645:24: error: ‘SSL2_MAX_CONNECTION_ID_LENGTH’ undeclared here (not in a function); did you mean ‘SSL_MAX_SSL_SESSION_ID_LENGTH’?
-  unsigned char conn_id[SSL2_MAX_CONNECTION_ID_LENGTH];
-                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<b>764.c:645:24:</b> <span class="prompt">error:</span> ‘<b>SSL2_MAX_CONNECTION_ID_LENGTH</b>’ undeclared here (not in a function); did you mean ‘<b>SSL_MAX_SSL_SESSION_ID_LENGTH</b>’?
+  unsigned char conn_id[<span class="prompt">SSL2_MAX_CONNECTION_ID_LENGTH</span>];
+                        <span class="prompt">^~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
                         SSL_MAX_SSL_SESSION_ID_LENGTH
 764.c: In function ‘read_ssl_packet’:
-764.c:847:19: error: ‘SSL2_MT_ERROR’ undeclared (first use in this function); did you mean ‘SSL_METHOD’?
+764.c:847:19: <span class="prompt">error:</span> ‘SSL2_MT_ERROR’ undeclared (first use in this function); did you mean ‘SSL_METHOD’?
     if ((buf[0] == SSL2_MT_ERROR) && (rec_len == 3)) {
                    ^~~~~~~~~~~~~
                    SSL_METHOD
 764.c:847:19: note: each undeclared identifier is reported only once for each function it appears in
 764.c: In function ‘get_server_hello’:
-764.c:979:16: error: ‘SSL2_MT_SERVER_HELLO’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_HELLO’?
+764.c:979:16: <span class="prompt">error:</span> ‘SSL2_MT_SERVER_HELLO’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_HELLO’?
   if (*(p++) != SSL2_MT_SERVER_HELLO) {
                 ^~~~~~~~~~~~~~~~~~~~
                 SSL3_MT_SERVER_HELLO
 764.c: In function ‘send_client_master_key’:
-764.c:1071:10: error: dereferencing pointer to incomplete type ‘EVP_PKEY {aka struct evp_pkey_st}’
+764.c:1071:10: <span class="prompt">error:</span> dereferencing pointer to incomplete type ‘EVP_PKEY {aka struct evp_pkey_st}’
   if (pkey->type != EVP_PKEY_RSA) {
           ^~
 764.c: In function ‘get_server_verify’:
-764.c:1148:16: error: ‘SSL2_MT_SERVER_VERIFY’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_HELLO’?
+764.c:1148:16: <span class="prompt">error:</span> ‘SSL2_MT_SERVER_VERIFY’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_HELLO’?
   if (buf[0] != SSL2_MT_SERVER_VERIFY) {
                 ^~~~~~~~~~~~~~~~~~~~~
                 SSL3_MT_SERVER_HELLO
 764.c: In function ‘send_client_finished’:
-764.c:1160:11: error: ‘SSL2_MT_CLIENT_FINISHED’ undeclared (first use in this function); did you mean ‘SSL3_MT_FINISHED’?
+764.c:1160:11: <span class="prompt">error:</span> ‘SSL2_MT_CLIENT_FINISHED’ undeclared (first use in this function); did you mean ‘SSL3_MT_FINISHED’?
   buf[0] = SSL2_MT_CLIENT_FINISHED;
            ^~~~~~~~~~~~~~~~~~~~~~~
            SSL3_MT_FINISHED
 764.c: In function ‘get_server_finished’:
-764.c:1173:16: error: ‘SSL2_MT_SERVER_FINISHED’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_DONE’?
+764.c:1173:16: <span class="prompt">error:</span> ‘SSL2_MT_SERVER_FINISHED’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_DONE’?
   if (buf[0] != SSL2_MT_SERVER_FINISHED) {
                 ^~~~~~~~~~~~~~~~~~~~~~~
                 SSL3_MT_SERVER_DONE
