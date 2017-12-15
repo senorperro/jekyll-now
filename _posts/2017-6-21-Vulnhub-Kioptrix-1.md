@@ -102,7 +102,7 @@ Exploit: Apache mod_ssl < 2.8.7 OpenSSL - 'OpenFuckV2.c' Remote Exploit
 
 Copied to: /root/764.c
 
-<span class="prompt">root@kali</span>:<span class="dir">~</span># ... (Steps Update OpenFuck Exploit) ...
+<span class="prompt">root@kali</span>:<span class="dir">~</span># ... (steps to update openfuck exploit) ...
 
 <span class="prompt">root@kali</span>:<span class="dir">~</span># gcc -o OpenFuck 764.c -lcrypto
 <b>764.c:645:24:</b> <span class="prompt">error:</span> ‘<b>SSL2_MAX_CONNECTION_ID_LENGTH</b>’ undeclared here (not in a function); did you mean ‘<b>SSL_MAX_SSL_SESSION_ID_LENGTH</b>’?
