@@ -108,37 +108,37 @@ Copied to: /root/764.c
 <b>764.c:645:24:</b> <span class="prompt">error:</span> ‘<b>SSL2_MAX_CONNECTION_ID_LENGTH</b>’ undeclared here (not in a function); did you mean ‘<b>SSL_MAX_SSL_SESSION_ID_LENGTH</b>’?
   unsigned char conn_id[<span class="prompt">SSL2_MAX_CONNECTION_ID_LENGTH</span>];
                         <span class="prompt">^~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
-                        SSL_MAX_SSL_SESSION_ID_LENGTH
-764.c: In function ‘read_ssl_packet’:
-764.c:847:19: <span class="prompt">error:</span> ‘SSL2_MT_ERROR’ undeclared (first use in this function); did you mean ‘SSL_METHOD’?
-    if ((buf[0] == SSL2_MT_ERROR) && (rec_len == 3)) {
-                   ^~~~~~~~~~~~~
-                   SSL_METHOD
-764.c:847:19: note: each undeclared identifier is reported only once for each function it appears in
-764.c: In function ‘get_server_hello’:
-764.c:979:16: <span class="prompt">error:</span> ‘SSL2_MT_SERVER_HELLO’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_HELLO’?
-  if (*(p++) != SSL2_MT_SERVER_HELLO) {
-                ^~~~~~~~~~~~~~~~~~~~
-                SSL3_MT_SERVER_HELLO
-764.c: In function ‘send_client_master_key’:
-764.c:1071:10: <span class="prompt">error:</span> dereferencing pointer to incomplete type ‘EVP_PKEY {aka struct evp_pkey_st}’
-  if (pkey->type != EVP_PKEY_RSA) {
-          ^~
-764.c: In function ‘get_server_verify’:
-764.c:1148:16: <span class="prompt">error:</span> ‘SSL2_MT_SERVER_VERIFY’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_HELLO’?
-  if (buf[0] != SSL2_MT_SERVER_VERIFY) {
-                ^~~~~~~~~~~~~~~~~~~~~
-                SSL3_MT_SERVER_HELLO
-764.c: In function ‘send_client_finished’:
-764.c:1160:11: <span class="prompt">error:</span> ‘SSL2_MT_CLIENT_FINISHED’ undeclared (first use in this function); did you mean ‘SSL3_MT_FINISHED’?
-  buf[0] = SSL2_MT_CLIENT_FINISHED;
-           ^~~~~~~~~~~~~~~~~~~~~~~
-           SSL3_MT_FINISHED
-764.c: In function ‘get_server_finished’:
-764.c:1173:16: <span class="prompt">error:</span> ‘SSL2_MT_SERVER_FINISHED’ undeclared (first use in this function); did you mean ‘SSL3_MT_SERVER_DONE’?
-  if (buf[0] != SSL2_MT_SERVER_FINISHED) {
-                ^~~~~~~~~~~~~~~~~~~~~~~
-                SSL3_MT_SERVER_DONE
+                        <span class="out-green">SSL_MAX_SSL_SESSION_ID_LENGTH</span>
+<b>764.c:</b> In function ‘<b>read_ssl_packet</b>’:
+<b>764.c:847:19:</b> <span class="prompt">error:</span> ‘<b>SSL2_MT_ERROR</b>’ undeclared (first use in this function); did you mean ‘<b>SSL_METHOD</b>’?
+    if ((buf[0] == <span class="prompt">SSL2_MT_ERROR</span>) && (rec_len == 3)) {
+                   <span class="prompt">^~~~~~~~~~~~~</span>
+                   <span class="out-green">SSL_METHOD</span>
+<b>764.c:847:19:</b> note: each undeclared identifier is reported only once for each function it appears in
+<b>764.c:</b> In function ‘<b>get_server_hello</b>’:
+<b>764.c:979:16:</b> <span class="prompt">error:</span> ‘<b>SSL2_MT_SERVER_HELLO</b>’ undeclared (first use in this function); did you mean ‘<b>SSL3_MT_SERVER_HELLO</b>’?
+  if (*(p++) != <span class="prompt">SSL2_MT_SERVER_HELLO</span>) {
+                <span class="prompt">^~~~~~~~~~~~~~~~~~~~</span>
+                <span class="out-green">SSL3_MT_SERVER_HELLO</span>
+<b>764.c:</b> In function ‘<b>send_client_master_key</b>’:
+<b>764.c:1071:10:</b> <span class="prompt">error:</span> dereferencing pointer to incomplete type ‘<b>EVP_PKEY {aka struct evp_pkey_st}</b>’
+  if (pkey<span class="prompt">-></span>type != EVP_PKEY_RSA) {
+          <span class="prompt">^~</span>
+<b>764.c:</b> In function ‘<b>get_server_verify</b>’:
+<b>764.c:1148:16:</b> <span class="prompt">error:</span> ‘<b>SSL2_MT_SERVER_VERIFY</b>’ undeclared (first use in this function); did you mean ‘<b>SSL3_MT_SERVER_HELLO</b>’?
+  if (buf[0] != <span class="prompt">SSL2_MT_SERVER_VERIFY</span>) {
+                <span class="prompt">^~~~~~~~~~~~~~~~~~~~~</span>
+                <span class="out-green">SSL3_MT_SERVER_HELLO</span>
+<b>764.c:</b> In function ‘<b>send_client_finished</b>’:
+<b>764.c:1160:11:</b> <span class="prompt">error:</span> ‘<b>SSL2_MT_CLIENT_FINISHED</b>’ undeclared (first use in this function); did you mean ‘<b>SSL3_MT_FINISHED</b>’?
+  buf[0] = <span class="prompt">SSL2_MT_CLIENT_FINISHED</span>;
+           <span class="prompt">^~~~~~~~~~~~~~~~~~~~~~~</span>
+           <span class="out-green">SSL3_MT_FINISHED</span>
+<b>764.c:</b> In function ‘<b>get_server_finished</b>’:
+<b>764.c:1173:16:</b> <span class="prompt">error:</span> ‘<b>SSL2_MT_SERVER_FINISHED</b>’ undeclared (first use in this function); did you mean ‘<b>SSL3_MT_SERVER_DONE</b>’?
+  if (buf[0] != <span class="prompt">SSL2_MT_SERVER_FINISHED</span>) {
+                <span class="prompt">^~~~~~~~~~~~~~~~~~~~~~~</span>
+                <span class="out-green">SSL3_MT_SERVER_DONE</span>
 </pre>
 
 This can be solved by running <code>apt-get install libssl1.0-dev</code>.
