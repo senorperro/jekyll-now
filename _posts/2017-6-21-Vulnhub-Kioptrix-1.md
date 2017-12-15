@@ -114,7 +114,7 @@ Copied to: /root/764.c
     if ((buf[0] == <span class="prompt">SSL2_MT_ERROR</span>) && (rec_len == 3)) {
                    <span class="prompt">^~~~~~~~~~~~~</span>
                    <span class="out-green">SSL_METHOD</span>
-<b>764.c:847:19:</b> <span class="out-teal"note:</span> each undeclared identifier is reported only once for each function it appears in
+<b>764.c:847:19:</b> <span class="out-teal">note:</span> each undeclared identifier is reported only once for each function it appears in
 <b>764.c:</b> In function ‘<b>get_server_hello</b>’:
 <b>764.c:979:16:</b> <span class="prompt">error:</span> ‘<b>SSL2_MT_SERVER_HELLO</b>’ undeclared (first use in this function); did you mean ‘<b>SSL3_MT_SERVER_HELLO</b>’?
   if (*(p++) != <span class="prompt">SSL2_MT_SERVER_HELLO</span>) {
