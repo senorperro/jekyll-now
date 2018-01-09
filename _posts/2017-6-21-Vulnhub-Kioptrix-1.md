@@ -8,7 +8,7 @@ Download [Kioptrix 1 here](http://www.kioptrix.com/blog/test-page/) or from [Vul
 
 <h3>Finding the Host</h3>
 
-Using <code>netdiscover</code> the IP address of the target is found.
+Using <code>netdiscover</code> the IP address of the target is found:
 
 <pre class="console-output">
 <span class="prompt">root@kali</span>:<span class="dir">~</span># netdiscover -r 192.168.201.0/24 -i eth0
